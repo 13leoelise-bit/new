@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<style>
+  html, body { margin: 0; height: 100%; background: #0e0e12; overflow: hidden; }
+  .dot { position: absolute; width: 80px; height: 80px; border-radius: 50%; background: #ff5a36; top: 50%; margin-top: -40px; }
+  h1 { position: absolute; bottom: 12%; width: 100%; text-align: center; color: #f4f1ea; font: 600 64px system-ui, sans-serif; }
+</style>
+</head>
+<body>
+<div class="dot"></div>
+<h1>motion studio</h1>
+<script>
+  const dot = document.querySelector('.dot');
+  const title = document.querySelector('h1');
+  const ease = (t) => 1 - Math.pow(1 - t, 3);
+  // Deterministic: every frame is a pure function of t.
+  window.seek = (t) => {
+    const p = ease(Math.min(t / 2, 1));
+    dot.style.left = `calc(${p * 100}% - ${p * 80}px)`;
+    dot.style.transform = `scale(${1 + 0.3 * Math.sin(t * Math.PI * 2)})`;
+    title.style.opacity = Math.min(Math.max((t - 0.5) / 0.8, 0), 1);
+  };
+  window.seek(0);
+</script>
+</body>
+</html>

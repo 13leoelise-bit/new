@@ -1,0 +1,27 @@
+{
+  "name": "motion-studio",
+  "version": "1.0.0",
+  "description": "Headless motion-graphics studio: HTML/Remotion/HyperFrames to MP4",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "render": "node scripts/render-html.mjs",
+    "smoke": "node scripts/render-html.mjs examples/hello.html out/hello.mp4 3 30",
+    "audio": "python3 scripts/analyze_audio.py"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/13leoelise-bit/new.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/13leoelise-bit/new/issues"
+  },
+  "homepage": "https://github.com/13leoelise-bit/new#readme",
+  "devDependencies": {
+    "playwright": "^1.63.0"
+  },
+  "type": "module"
+}
